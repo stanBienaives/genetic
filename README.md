@@ -37,8 +37,8 @@ const isPrime = num => {
 }
 
 // Count every prime number in the array
-const fitness = (entity) => {
-  entity.reduce((count, gene) => {
+const fitness = (dna) => {
+  return dna.reduce((count, gene) => {
     return count + isPrime(gene) ? 1 : 0,
   },0)
 }
