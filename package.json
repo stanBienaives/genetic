@@ -1,0 +1,18 @@
+{
+  "name": "genetic-arena",
+  "version": "1.0.0",
+  "description": "Tool to simulate genetic competition",
+  "main": "lib/genetic.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "ava tests/*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ava": "^0.25.0"
+  }
+}
