@@ -7,7 +7,7 @@ const tournament = new GeneticTournament({
   optimize: (a,b) => a > b,
   fitness: (entity) => entity.reduce((sum, occ) => sum + occ, 0),
   config: {
-    size: 20000,
+    size: 200,
     crossover: 0.2,
     mutation: 0.2,
     iterations: 100,
