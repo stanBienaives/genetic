@@ -38,7 +38,7 @@ module.exports = {
       "func-call-spacing": "error",
       "func-name-matching": "error",
       "func-names": "error",
-      "func-style": ["error", "declaration"],
+      "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
       "generator-star-spacing": "error",
       "global-require": "error",
       "guard-for-in": "error",
