@@ -1,7 +1,7 @@
 {
-  "name": "genetic-tournament",
+  "name": "genetic",
   "version": "1.0.0",
-  "description": "Tool to simulate genetic competition",
+  "description": "Tool to simulate genetic tournament",
   "main": "lib/genetic.js",
   "directories": {
     "lib": "lib",
@@ -15,5 +15,9 @@
   "dependencies": {
     "ava": "^0.25.0",
     "eslint": "^5.0.1"
+  },
+  "repository" :{
+    "type" : "git",
+    "url" : "https://github.com/stanBienaives/genetic"
   }
 }
