@@ -2,29 +2,45 @@ const test = require('ava');
 const GeneticTournament = require('../lib/genetic');
 
 
-const tournament = new GeneticTournament({
-  seed: () => [...Array(20).keys()].map(() => Math.random()),
-  optimize: (a,b) => a > b,
+const config = {
+  seed   : () => [...Array(20).keys()].map(() => Math.random()),
   fitness: (entity) => entity.reduce((sum, occ) => sum + occ, 0),
-  config: {
-    size: 200,
-    crossover: 0.2,
-    mutation: 0.2,
+  config : {
+    size      : 200,
+    crossover : 0.2,
+    mutation  : 0.2,
     iterations: 100,
-    survivals: 1,
-  }
+    survivals : 1,
+  },
+};
+
+
+test('Default params should work and return entity should be very close to an Array of one', function tester(t) {
+  const tournament = new GeneticTournament(config);
+
+  tournament.evolve();
+
+  const {best} = tournament;
+  const footprint = best.reduce((sum, occ) => sum + parseFloat(occ), 0);
+
+  t.true((best.length - footprint) / best.length < 0.05);
+
 });
 
-tournament.evolve();
+test('Optimize function should reverse result', function tester(t) {
+  const config2 = Object.assign(config, {
+    optimize: (fit1, fit2) => {
+      return fit1 > fit2 ? 1 : -1;
+    },
+  });
 
-test('Best entity should be very close to an Array of one', function test(t) {
-  const best = tournament.best;
-  const footprint =  best.reduce((sum, occ) => sum + parseFloat(occ), 0); 
-  t.true( (best.length  - footprint) / best.length < 0.01 )
+  const tournament = new GeneticTournament(config2);
 
-    // notification,
-})
+  tournament.evolve();
 
+  const {best} = tournament;
+  const footprint = best.reduce((sum, occ) => sum + parseFloat(occ), 0);
 
+  t.true((best.length - footprint) / best.length > 0.95);
 
-// })
+});
