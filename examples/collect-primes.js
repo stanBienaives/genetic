@@ -1,7 +1,7 @@
 
 
 const seed = () => {
-  return Array.from(new Array(200), () => Math.floor(Math.random() * 10000));
+  return Array.from(new Array(50), () => Math.floor(Math.random() * 10000));
 };
 
 const isPrime = (num) => {
@@ -29,4 +29,5 @@ const tournament = new Tournament({
 
 tournament.evolve();
 
+// Log: the best candidates
 console.log(tournament.best);
