@@ -1,5 +1,5 @@
 {
-  "name": "genetic",
+  "name": "genetic-tournament",
   "version": "1.0.0",
   "description": "Tool to simulate genetic tournament",
   "main": "lib/genetic.js",
